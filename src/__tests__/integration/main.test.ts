@@ -9,6 +9,6 @@ describe('my-command', () => {
       env: { TS_NODE_FILES: 'true' },
     });
 
-    expect(stdout).toContain('Usage: my-command [options]');
+    expect(stdout).toContain('Usage: dnl [options]');
   });
 });
