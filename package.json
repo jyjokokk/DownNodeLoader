@@ -8,7 +8,7 @@
     "bin/**/*"
   ],
   "bin": {
-    "my-command": "./bin/index.js"
+    "dnl": "./bin/index.js"
   },
   "scripts": {
     "build": "tsc",
