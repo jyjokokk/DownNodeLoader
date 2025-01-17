@@ -1,6 +1,6 @@
 {
   "name": "down-node-loader",
-  "version": "0.0.0-development",
+  "version": "0.0.0",
   "description": "Download manager running on NodeJS",
   "files": [
     "!lib/__tests__/**/*",
@@ -15,7 +15,7 @@
     "clean": "rm -rf ./lib/",
     "lint": "eslint ./src/ --fix",
     "start": "yarn clean && yarn build && node ./bin/index.js",
-    "deploy": "yarn clean && yarn build && npm publish",
+    "deploy": "yarn clean && yarn build && chmod +x ./bin/index.js && ",
     "dev": "nodemon ./src/app.ts",
     "start:old": "TS_NODE_FILES=true ts-node ./src/cli.ts",
     "prepare": "husky install",
