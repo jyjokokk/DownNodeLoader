@@ -16,7 +16,7 @@
     "lint": "eslint ./src/ --fix",
     "start": "yarn clean && yarn build && node ./bin/index.js",
     "deploy": "yarn clean && yarn build && chmod +x ./bin/index.js && ",
-    "release:patch": "yarn version --patch && git push --follow-tags",
+    "release:patch": "yarn version --patch && git push",
     "release:minor": "yarn release --minor && git push --follow-tags",
     "release:major": "yarn release --major && git push --follow-tags",
     "release": "yarn release:patch",
