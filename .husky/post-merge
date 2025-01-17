@@ -1,4 +1,4 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
-sh ./husky/scripts/run-npm-patch.sh
+sh ./.husky/scripts/run-npm-patch.sh
