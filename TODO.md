@@ -10,14 +10,15 @@ Keep track of ideas and tasks in the project here.
 - Reformat files
 - Compress / uncompress downloads
 - Realtime progress logging
+- Communicating with Chrome / Firefox
 
 ## Tasks
 
-- [ ] Read target URL from file
-- [ ] Read target URL from args
 - [ ] Command line interface (args)
 - [ ] Download files
-- [ ] Write to directory
 - [ ] Logging
-- [ ] Rename files
+- [ ] Read target URL from args
+- [ ] Write to directory
+- [x] Read target URL from file
+- [x] Rename files
   - [ ] Add running numbers to files

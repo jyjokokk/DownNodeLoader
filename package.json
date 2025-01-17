@@ -1,6 +1,6 @@
 {
   "name": "down-node-loader",
-  "version": "0.0.1",
+  "version": "0.1.1",
   "description": "Download manager running on NodeJS",
   "files": [
     "!lib/__tests__/**/*",
@@ -15,7 +15,11 @@
     "clean": "rm -rf ./lib/",
     "lint": "eslint ./src/ --fix",
     "start": "yarn clean && yarn build && node ./bin/index.js",
-    "deploy": "yarn clean && yarn build && npm publish",
+    "deploy": "yarn clean && yarn build && chmod +x ./bin/index.js && ",
+    "release:patch": "yarn version --patch && git push",
+    "release:minor": "yarn release --minor && git push --follow-tags",
+    "release:major": "yarn release --major && git push --follow-tags",
+    "release": "yarn release:patch",
     "dev": "nodemon ./src/app.ts",
     "start:old": "TS_NODE_FILES=true ts-node ./src/cli.ts",
     "prepare": "husky install",
@@ -50,8 +54,8 @@
     "commander": "^7.2.0"
   },
   "devDependencies": {
-    "@types/jest": "^27.5.2",
-    "@types/node": "^12.20.11",
+    "@types/jest": "^29.5.14",
+    "@types/node": "^22.10.7",
     "@typescript-eslint/eslint-plugin": "^4.22.0",
     "@typescript-eslint/parser": "^4.22.0",
     "chalk": "^4.1.1",
@@ -65,7 +69,7 @@
     "lint-staged": "^13.2.1",
     "nodemon": "^3.1.9",
     "prettier": "^2.2.1",
-    "ts-jest": "^27.0.5",
+    "ts-jest": "^29.2.5",
     "ts-node": "^10.2.1",
     "typescript": "^4.2.4"
   },
