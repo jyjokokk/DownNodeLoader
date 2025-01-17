@@ -15,6 +15,7 @@
     "clean": "rm -rf ./lib/",
     "lint": "eslint ./src/ --fix",
     "start": "yarn clean && yarn build && node ./bin/index.js",
+    "deploy": "yarn clean && yarn build && npm publish",
     "dev": "nodemon ./src/app.ts",
     "start:old": "TS_NODE_FILES=true ts-node ./src/cli.ts",
     "prepare": "husky install",
