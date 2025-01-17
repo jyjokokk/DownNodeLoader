@@ -19,6 +19,7 @@
     "release:patch": "yarn version --patch && git push --follow-tags",
     "release:minor": "yarn release --minor && git push --follow-tags",
     "release:major": "yarn release --major && git push --follow-tags",
+    "release": "yarn release:patch",
     "dev": "nodemon ./src/app.ts",
     "start:old": "TS_NODE_FILES=true ts-node ./src/cli.ts",
     "prepare": "husky install",
