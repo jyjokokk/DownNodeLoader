@@ -15,14 +15,8 @@ module.exports = {
     '!<rootDir>/src/types/**/*.ts',
     '!<rootDir>/src/cli.ts',
   ],
-  collectCoverage: true,
+  collectCoverage: false,
   coverageDirectory: './coverage',
-  globals: {
-    'ts-jest': {
-      diagnostics: false,
-      isolatedModules: true,
-    },
-  },
   bail: true,
   testTimeout: 10000,
-};
+}
