@@ -1,0 +1,35 @@
+# Exclude test files
+src/__tests__/
+src/**/*.spec.ts
+src/**/*.test.ts
+
+# Exclude build scripts and configuration files
+scripts/
+tsconfig.json
+tsconfig.test.json
+tsconfig.eslint.json
+.eslintrc.json
+.prettierrc
+jest.config.js
+*.eslint*
+jest.config.js
+
+
+# Exclude local environment files
+.env
+.env.local
+.env.test
+
+# Exclude documentation files
+docs/
+*.md
+
+# Exclude other unnecessary files
+node_modules/
+dist/
+coverage/
+
+.vscode/
+.husky/
+.github/
+.editorconfig
