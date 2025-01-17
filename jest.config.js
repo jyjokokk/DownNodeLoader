@@ -9,14 +9,6 @@ module.exports = {
   rootDir: './',
   roots: ['<rootDir>/src/'],
 
-  collectCoverageFrom: [
-    '<rootDir>/src/**/*.ts',
-    '!<rootDir>/src/__tests__/**/*.ts',
-    '!<rootDir>/src/types/**/*.ts',
-    '!<rootDir>/src/cli.ts',
-  ],
-  collectCoverage: false,
-  coverageDirectory: './coverage',
   bail: true,
   testTimeout: 10000,
 }
