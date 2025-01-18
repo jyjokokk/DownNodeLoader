@@ -12,7 +12,7 @@
   },
   "scripts": {
     "build": "tsc",
-    "clean": "rm -rf ./lib/",
+    "clean": "rm -rf ./lib/ && rm -rf ./coverage/",
     "lint": "eslint ./src/ --fix",
     "dev": "nodemon ./src/app.ts",
     "start": "yarn clean && yarn build && node ./bin/index.js",
@@ -45,6 +45,8 @@
     "commander": "^13.0.0"
   },
   "devDependencies": {
+    "@eslint/eslintrc": "^3.2.0",
+    "@eslint/js": "^9.18.0",
     "@types/jest": "^29.5.14",
     "@types/node": "^22.10.7",
     "@typescript-eslint/eslint-plugin": "^8.20.0",
@@ -66,10 +68,5 @@
   },
   "lint-staged": {
     "*.ts": "eslint --cache --cache-location .eslintcache --fix"
-  },
-  "release": {
-    "branches": [
-      "main"
-    ]
   }
 }

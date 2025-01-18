@@ -8,11 +8,10 @@ scripts/
 tsconfig.json
 tsconfig.test.json
 tsconfig.eslint.json
-.eslintrc.json
 .prettierrc
 jest.config.js
-*.eslint*
 jest.config.js
+eslint.config.mjs
 
 
 # Exclude local environment files
