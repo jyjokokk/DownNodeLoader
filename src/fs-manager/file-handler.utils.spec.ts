@@ -4,11 +4,12 @@ import {
   createDirectories,
   readLines,
   readLinesSync,
+  renameFileWithNumbering,
 } from './file-handler.utils'
 
 const textFile1 = ['file1.txt', 'file2.txt', 'file3.md'].join('\n')
 
-const fileSystem = {
+let fileSystem = {
   textFile1,
 }
 
@@ -27,6 +28,13 @@ jest.mock('node:fs/promises', () => ({
     return str
   },
   readFile: async fileName => readFileMock(fileName),
+  rename: s => s,
+  access: async str => {
+    if (!fileSystem[str]) {
+      throw new Error('File not found')
+    }
+    return
+  },
 }))
 
 jest.mock('node:fs', () => ({
@@ -37,6 +45,9 @@ jest.spyOn(console, 'error').mockImplementation(() => {})
 let calls: any
 beforeEach(() => {
   jest.clearAllMocks()
+  fileSystem = {
+    textFile1,
+  }
   calls = {
     fs: {
       mkdir: false,
@@ -47,13 +58,13 @@ beforeEach(() => {
 
 describe('changeExtension', () => {
   it('should change the extension of a file path', () => {
-    const result = changeExtension('example.txt', 'md')
-    expect(result).toBe('example.md')
+    const result = changeExtension('example.txt', 'tmp')
+    expect(result).toStrictEqual(['example.tmp', '.txt'])
   })
 
   it('should add an extension if there is none', () => {
     const result = changeExtension('example', 'md')
-    expect(result).toBe('example.md')
+    expect(result).toStrictEqual(['example.md', ''])
   })
 })
 
@@ -94,5 +105,24 @@ describe('readLinesSync', () => {
   it('should return an empty array if no file is found synchronously', () => {
     const result = readLinesSync('nonExistentFile')
     expect(result).toStrictEqual([])
+  })
+})
+describe('renameFileWithNumbering', () => {
+  it('should rename a file without numbering if no conflict', async () => {
+    const result = await renameFileWithNumbering('file1.txt', 'newFile')
+    expect(result).toBe('newFile.txt')
+  })
+
+  it('should rename a file with numbering if there is a conflict', async () => {
+    fileSystem['newFile.txt'] = 'content'
+    const result = await renameFileWithNumbering('file1.txt', 'newFile')
+    expect(result).toBe('newFile(1).txt')
+  })
+
+  it('should rename a file with incremented numbering if multiple conflicts', async () => {
+    fileSystem['newFile.txt'] = 'content'
+    fileSystem['newFile(1).txt'] = 'content'
+    const result = await renameFileWithNumbering('file1.txt', 'newFile')
+    expect(result).toBe('newFile(2).txt')
   })
 })

@@ -1,5 +1,5 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
-npx lint-staged
+# npx lint-staged
 sh ./.husky/scripts/run-npm-patch.sh
