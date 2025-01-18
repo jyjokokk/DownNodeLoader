@@ -6,6 +6,17 @@ module.exports = {
     '^.+\\.(t|j)s$': ['ts-jest', { isolatedModules: true }],
   },
 
+  collectCoverageFrom: [
+    '<rootDir>/src/**/*.ts',
+    '!<rootDir>/src/__tests__/**/*.ts',
+    '!<rootDir>/src/types/**/*.ts',
+    '!<rootDir>/src/**/*.spec.ts',
+    '!<rootDir>/src/**/*.test.ts',
+    '!<rootDir>/src/app.ts',
+  ],
+  collectCoverage: false,
+  coverageDirectory: './coverage',
+
   rootDir: './',
   roots: ['<rootDir>/src/'],
 
