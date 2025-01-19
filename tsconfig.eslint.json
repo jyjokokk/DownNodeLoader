@@ -1,6 +1,6 @@
 {
   "extends": "./tsconfig.json",
-  "include": ["src/**/*.ts"],
+  "include": ["src/**/*.ts", "eslint.config.mjs"],
   "exclude": [
     "node_modules",
     "dist",
@@ -11,6 +11,8 @@
     "tsconfig.json",
     "tsconfig.eslint.json",
     "tsconfig.build.json",
-    "tsconfig.test.json"
+    "tsconfig.test.json",
+    "**/*spec.ts",
+    "**/*.ckjs"
   ]
 }
